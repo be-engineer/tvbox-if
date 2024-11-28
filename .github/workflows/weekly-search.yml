@@ -1,0 +1,41 @@
+name: Weekly TVBox Source Search
+
+on:
+  schedule:
+    - cron: '0 0 */5 * 0'  # 每周日 00:00 执行
+  workflow_dispatch:      # 允许手动触发
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0    # 获取完整历史记录用于推送
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run TVBox search
+      run: python main.py
+      env:
+        PYTHONUNBUFFERED: 1
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+
+    - name: Commit and push if changed
+      run: |
+        git add tvbox-source.txt
+        git add tvbox-url.txt
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update TVBox sources $(date +'%Y-%m-%d')" && git push) 
