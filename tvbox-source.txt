@@ -60,3 +60,7 @@ https://boxqu.com/app/tvbox/tvboxok.html
 [2024-11-28 09:46:04] https://gitee.com/tianyaxiangdong/tvbox-setting
 [2024-11-28 09:46:04] https://gitee.com/zyk66/tvbox-interface
 [2024-11-28 09:46:04] https://gitee.com/mr-yang01/TVBox03
+[2024-12-01 01:23:40] https://github.com/hl128k/tvbox
+[2024-12-01 01:23:40] https://portrait.gitee.com/njustmxn/tvbox?skip_mobile=true
+[2024-12-01 01:23:40] https://gitee.com/io9/TVbox-interface
+[2024-12-01 01:23:40] https://gitee.com/newgolo/tvbox
